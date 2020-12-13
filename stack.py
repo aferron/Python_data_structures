@@ -1,4 +1,5 @@
 # Stack implementation
+
 # Amila Ferron
 # CS300
 # April 14, 2020
@@ -29,7 +30,7 @@ class Array:
     def __init__(self):
         self.data = []
         self.top = 0
-        self.next = None 
+        self.next = None
 
 
 
@@ -47,12 +48,12 @@ class Array:
     # Removes the last data item added, and returns the value of that item
     def pop(self):
         if self.top == 0:
-            return None 
+            return None
         if self.top > SIZE:
-            return None 
+            return None
         self.top -= 1
         popped = self.data.pop()
-        return popped 
+        return popped
 
 
 
@@ -129,19 +130,19 @@ class Stack:
 
 
 
-    # Recursively traverses to the end of the list to remove the last 
+    # Recursively traverses to the end of the list to remove the last
     # value added. Appends the value to popped (a list).
     # Returns head.
     def _pop(self, head, popped):
         if head is None:
             return None
-        if head.next is None: 
+        if head.next is None:
             popped.append(head.pop())
             if head.top == 0:
                 return None
             return head
         head.next = self._pop(head.next, popped)
-        return head 
+        return head
 
 
 
@@ -189,7 +190,7 @@ class Stack:
     # Randomly get the size of the stack and push random values onto it
     def random_create(self):
         size = random.randint(1, MAX_ENTRIES)
-        for i in range(0, size): 
+        for i in range(0, size):
             value = random.randint(1, MAX_VALUE)
             self.push(value)
 
@@ -217,7 +218,7 @@ class Stack:
         # Test pop
         print("Popping:")
         pop_times = random.randint(1, 5)
-        for i in range(0, pop_times): 
+        for i in range(0, pop_times):
             print(info.pop())
         print("The stack: ")
         info.display()
